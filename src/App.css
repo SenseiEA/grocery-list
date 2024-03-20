@@ -1,38 +1,305 @@
-.App {
+/* GLOBAL STYLES */
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Hind", "Arial", "Helvetica", "sans-serif";
+  height: 100%;
+  background-image: url(/public/penacony.webp);
+  background-size: cover; /* Cover the entire viewport */
+  background-attachment: fixed; /* Fix the background image */
+  color: #ffffff;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 20em;
+}
+
+.container-header {
+  margin: 0 auto;
+  max-width: 30em;
+}
+
+/* HEADER */
+header {
+  padding: 20px 0 10px 0;
+  background: #000;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header__username {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header__title {
+  margin: 0;
+  padding-bottom: 0;
+  font-size: 3.49rem;
+  font-weight: 300;
+}
+
+/* MAIN SECTION */
+main {
+  padding-top: 30px;
+}
+
+/* Input and "add" button */
+.submission-line__input {
+  padding-left: 30px;
+  height: 44px;
+  width: 50%;
+  border: none;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.3rem;
+  border-radius: 30px;
+  margin-top: 30px;
+}
+
+.submission-line__input::placeholder {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.submission-line__input:focus {
+  outline: none;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* .submission-line__btn {
+  float: right;
+  height: 46px;
+  width: 27.33333%;
+  background: #ffc107;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: none;
+  font-size: 1.3rem;
+  color: #fff;
+  border-radius: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+} */
+/* CSS */
+.submission-line__btn {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.button-36:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
+}
+.submission-line__input,
+.submission-line__btn {
+  margin-bottom: 16px;
+}
+
+/* List, list items, and list item buttons */
+
+.list {
+  padding: 0;
+  list-style-type: none;
+  clear: both;
+}
+
+.list__item {
+  font-size: 1.5rem;
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.list__item:nth-child(odd) {
+  background: hsla(223, 41%, 21%, 1);
+  .iconic {
+    .icons {
+      background-color: black;
+    }
+
+    .remove:hover {
+      background-color: rgb(255, 73, 73);
+    }
+    .obtain:hover {
+      background-color: rgb(90, 255, 90);
+    }
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.list__item:nth-child(even) {
+  background: #e9d9bdff;
+  color: black;
+  .iconic {
+    .icons {
+      background-color: white;
+    }
+
+    .remove:hover {
+      background-color: rgb(255, 73, 73);
+    }
+    .obtain:hover {
+      background-color: rgb(90, 255, 90);
+    }
+  }
+}
+
+.list__delete-btn {
+  cursor: pointer;
+  float: left;
+  margin: -5px;
+  padding: 5px 9px;
+}
+
+.list__check-btn {
+  cursor: pointer;
+  float: right;
+  margin: -5px;
+  padding: 4px 8px;
+}
+
+.select {
+  border-radius: 30px;
+}
+
+/* Checked-off item list formatting */
+
+/* (Increased specificity to override the even/odd psuedoclasses) */
+.list .list__item--checked {
+  background: #d1c4e9;
+  color: rgba(0, 0, 0, 0.38);
+  text-decoration: line-through;
+}
+
+.list__delete-btn--checked,
+.list__check-btn--checked {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+  border: solid 2px black;
+
+  border-radius: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.iconic {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between; /* To push the icons to the right */
+  align-items: center; /* To vertically center the text and icons */
+  margin-left: 10px;
+  font-weight: bolder;
 }
 
-.App-link {
-  color: #61dafb;
+.iconic span {
+  display: flex; /* Display the span as flex container */
+  align-items: center; /* Align items within the span */
+}
+.quantity {
+  margin-right: 1rem; /* Adjust spacing between quantity and item */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.obtainedItems {
+  text-align: center;
+  text-decoration: overline;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size: xx-large;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.obtained {
+  text-decoration: line-through;
+}
+
+.footer {
+  position: fixed; /* Fixed positioning */
+  left: 0; /* Align to the left */
+  bottom: 0; /* Align to the bottom */
+  width: 100%; /* Full width */
+  border: solid 2px black;
+  border-radius: 30px;
+  background-color: #e9d9bdff;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+
+.select-container {
+  display: inline-block; /* Display the select and button inline */
+  margin-right: 10px; /* Add spacing between select and button */
+}
+
+.select-style {
+  border: solid 2px black;
+  border-radius: 30px;
+  background-color: #e9d9bdff;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.button-style {
+  border: solid 2px black;
+  border-radius: 30px;
+  background-color: #e9d9bdff;
+  color: black;
+  font-weight: bold;
+  padding: 5px 10px; /* Add padding horizontally */
+  cursor: pointer;
+}
+
+.button-style:hover {
+  background-color: #d1c4e9; /* Change background color on hover */
 }
