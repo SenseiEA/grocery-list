@@ -9,16 +9,22 @@ export default function List({
   onEdit,
   editingItemID,
   setEditingItemID,
+  checkedOnly,
+  onCheckedOnly,
 }) {
+  const filteredItems = checkedOnly
+    ? items.filter((item) => item.isChecked)
+    : items;
   return (
     <ul className="list">
-      {items.map((item) => (
+      {filteredItems.map((item) => (
         <li className="list__item" key={item.id}>
           <Item
             item={item}
             onRemove={onRemove}
             onChecked={onChecked}
             onEdit={onEdit}
+            checkedOnly={checkedOnly}
             editingItemID={editingItemID}
             setEditingItemID={setEditingItemID}
           />

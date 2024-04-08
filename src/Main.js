@@ -10,6 +10,7 @@ export default function Main() {
   const [items, setItems] = useState([]);
   const [sortBy, setSortBy] = useState("name");
   const [editingItemID, setEditingItemID] = useState(null);
+  const [checkedOnly, setCheckedOnly] = useState(false);
   let sortedItems;
 
   if (sortBy === "input") sortedItems = items;
@@ -57,6 +58,10 @@ export default function Main() {
     );
   };
 
+  const handleCheckedOnly = () => {
+    setCheckedOnly(!checkedOnly);
+  };
+
   const handleClearList = () => {
     const confirmed = window.confirm("Are you sure you want to clear?");
     if (confirmed) {
@@ -82,6 +87,9 @@ export default function Main() {
         <button onClick={handleClearList} className="button-style">
           Clear
         </button>
+        <button onClick={handleCheckedOnly} className="button-style">
+          {checkedOnly ? "Show All" : "Show Checked Only"}
+        </button>
       </div>
       <Form onAddItems={handleAddItems} />
       <List
@@ -91,6 +99,8 @@ export default function Main() {
         onEdit={handleEditItem}
         editingItemID={editingItemID}
         setEditingItemID={setEditingItemID}
+        checkedOnly={checkedOnly}
+        onCheckedOnly={handleCheckedOnly}
       />
 
       <br />
