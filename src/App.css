@@ -163,6 +163,10 @@ main {
       background-color: black;
     }
 
+    .edit:hover {
+      background-color: rgb(80, 63, 205);
+    }
+
     .remove:hover {
       background-color: rgb(255, 73, 73);
     }
@@ -180,6 +184,10 @@ main {
       background-color: white;
     }
 
+    .edit:hover {
+      background-color: rgb(80, 63, 205);
+    }
+
     .remove:hover {
       background-color: rgb(255, 73, 73);
     }
@@ -187,6 +195,14 @@ main {
       background-color: rgb(90, 255, 90);
     }
   }
+}
+
+.icons.edit.even {
+  stroke: black;
+}
+
+.items :nth-child(even) .icons.edit.even {
+  stroke: white;
 }
 
 .list__delete-btn {
@@ -302,4 +318,10 @@ main {
 
 .button-style:hover {
   background-color: #d1c4e9; /* Change background color on hover */
+}
+
+.item-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

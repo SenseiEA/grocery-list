@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function Main() {
   const [items, setItems] = useState([]);
   const [sortBy, setSortBy] = useState("name");
+  const [editingItemID, setEditingItemID] = useState(null);
   let sortedItems;
 
   if (sortBy === "input") sortedItems = items;
@@ -18,11 +19,25 @@ export default function Main() {
     sortedItems = items
       .slice()
       .sort((a, b) => Number(a.isChecked) - Number(b.isChecked));
+  if (sortBy === "quantity")
+    sortedItems = items.slice().sort((a, b) => a.quantity - b.quantity);
 
   const [obtainedItems, setObtainedItems] = useState([]);
   const handleAddItems = (item) => {
     setItems((items) => [...items, item]);
   };
+
+  const handleEditItem = (itemId, newName, newQuantity) => {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === itemId
+          ? { ...item, name: newName, quantity: newQuantity }
+          : item
+      )
+    );
+    setEditingItemID(null);
+  };
+
   const handleRemoveItem = (itemId) => {
     const updatedItems = items.filter((item) => item.id !== itemId);
     setItems(updatedItems);
@@ -60,6 +75,7 @@ export default function Main() {
         >
           <option value="input">Sort by input</option>
           <option value="name">Sort by Name</option>
+          <option value="quantity">Sort by Quantity</option>
           <option value="isChecked">Sort by Status</option>
         </select>
 
@@ -72,6 +88,9 @@ export default function Main() {
         items={sortedItems}
         onRemove={handleRemoveItem}
         onChecked={handleChecked}
+        onEdit={handleEditItem}
+        editingItemID={editingItemID}
+        setEditingItemID={setEditingItemID}
       />
 
       <br />
